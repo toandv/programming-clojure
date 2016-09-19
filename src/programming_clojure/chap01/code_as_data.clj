@@ -6,7 +6,9 @@
 (def product_f (read-string "(defn product [numbers] (apply * numbers))"))
 (count product_f)
 (def product (eval product_f))
-((eval product_f) [1 2 3 4 5]) ;; this is powerful and beautiful
+
+((eval product_f) 
+  [1 2 3 4 5]) ;; this is powerful and beautiful
 (product [1 2])
 
 (defn reduce

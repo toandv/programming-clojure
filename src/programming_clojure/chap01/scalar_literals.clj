@@ -23,14 +23,19 @@ person
 
 (class person)
 
-(def person {:name "toan" :city "HN" ::city "HP"})
+(def person 
+  {:name "toan" 
+   :city "HN" 
+   ::city "HP"})
+
 person
 
 (class :java)
 
 (class #"[a-z*]")
 
-(def foo (read-string "(defn foo [] \"function foo\")"))
+(def foo 
+  (read-string "(defn foo [] \"function foo\")"))
 foo
 (for [i foo]
   (class i))
