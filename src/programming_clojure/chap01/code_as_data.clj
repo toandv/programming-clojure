@@ -3,6 +3,16 @@
 (count f)
 (eval f) ;; this is very nice
 
-(def fact (read-string "(defn fact [numbers] (apply * numbers))"))
-(count fact)
-((eval fact) [1 2 3 4 5]) ;; this is powerful and beautiful
+(def product_f (read-string "(defn product [numbers] (apply * numbers))"))
+(count product_f)
+(def product (eval product_f))
+((eval product_f) [1 2 3 4 5]) ;; this is powerful and beautiful
+(product [1 2])
+
+(defn reduce
+  [f numbers]
+  (apply f numbers))
+
+(reduce (fn [a b] (* a b)) [1 2 3 4])
+
+
