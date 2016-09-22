@@ -1,0 +1,73 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Wed Sep 21 18:26:02 2016
+;; Desktop file format version 206
+;; Emacs version 24.3.1
+
+;; Global section:
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("~/Study/Dropbox/ws/programming-clojure/src/programming_clojure/chap01/" "~/Study/Dropbox/ws/programming-clojure/" "~/.ido.last" "~/.emacs.d/customizations/ui.el" "~/.emacs.d/init.el" "~/.emacs.d/elpa/archives/melpa/archive-contents" "~/.emacs.d/elpa/archives/tromey/archive-contents" "~/.emacs.d/elpa/archives/marmalade/archive-contents" "~/.emacs.d/elpa/archives/gnu/archive-contents" "~/Study/Dropbox/ws/programming-clojure/src/programming_clojure/chap01/code_blocks.clj" "~/Work/prism/pubsense-gateway/src/main/java/com/senseinfosys/pubsense/gateway/infrastructure/translate/MsTranslatorService.java" "~/Study/Dropbox/ws/programming-clojure/src/programming_clojure/chap01/average.clj" "~/Study/Dropbox/ws/programming-clojure/src/programming_clojure/chap01/collection_literals.clj" "~/.emacs.d/themes/color-theme-tomorrow.el"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/home/toan/Study/Dropbox/ws/programming-clojure/src/programming_clojure/chap01/code_blocks.clj"
+  "code_blocks.clj"
+  'clojure-mode
+  '(projectile-mode linum-mode rainbow-delimiters-mode eldoc-mode paredit-mode cider-mode)
+  402
+  '(314 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "chap01"
+  'dired-mode
+  '(projectile-mode linum-mode rainbow-delimiters-mode)
+  443
+  '(nil nil)
+  t
+  '("/home/toan/Study/Dropbox/ws/programming-clojure/src/programming_clojure/chap01/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "programming_clojure"
+  'dired-mode
+  '(projectile-mode linum-mode rainbow-delimiters-mode)
+  259
+  '(nil nil)
+  t
+  '("/home/toan/Study/Dropbox/ws/programming-clojure/src/programming_clojure/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "src"
+  'dired-mode
+  '(projectile-mode linum-mode rainbow-delimiters-mode)
+  239
+  '(nil nil)
+  t
+  '("/home/toan/Study/Dropbox/ws/programming-clojure/src/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "programming-clojure"
+  'dired-mode
+  '(projectile-mode linum-mode rainbow-delimiters-mode)
+  569
+  '(nil nil)
+  t
+  '("/home/toan/Study/Dropbox/ws/programming-clojure/")
+  nil)
+
