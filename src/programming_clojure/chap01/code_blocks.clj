@@ -1,8 +1,10 @@
+
 (do 
   (println "hi")
   (apply * [1 2 3 4]))
 
 (rand-int 10)
+
 
 (let [a (rand-int 10)
       b (rand-int 10)]
@@ -11,20 +13,30 @@
   (do 
     (println (format "You rolled a %s and a %s" a b)) 
     (+ a b)))
-
+  
 (defn hypo 
   [x y] 
   (let [x2 (* x x)
         y2 (* y y)]
     (Math/sqrt (+ x2 y2))))
 
-;; a local that is defined by a let cannot be overriden, or the local is immutable 
-(let [x 10]
-  (def x 1)
-  (println x)) ;; prints 10
- 
-(let [x 10]
-  (let [x 1] 
-    (println x)) ;; prints 1
-  (println x))   ;; prints 10             
+;; function with multiple arities
+(def strange-adder (fn adder-self-reference 
+                     ([x] (adder-self-reference x 1))
+                     ([x y] (+ x y))))
+(strange-adder 10)
+(strange-adder 10 20)
 
+;; variadic function
+(defn concat-rest 
+  [x & rest]
+  (apply str (butlast rest)))
+(concat-rest 0 1 2 3 4)
+
+;; destructing rest args
+(defn make-user 
+  [& [user-id]] 
+  {:user-id (or user-id 
+                (str (java.util.UUID/randomUUID)))})
+(make-user)
+(make-user 1)
