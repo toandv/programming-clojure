@@ -7,7 +7,7 @@
 (count product_f)
 (def product (eval product_f))
 
-((eval product_f) 
+((eval product_f)
   [1 2 3 4 5]) ;; this is powerful and beautiful
 (product [1 2])
 
@@ -16,5 +16,6 @@
   (apply f numbers))
 
 (reduce (fn [a b] (* a b)) [1 2 3 4])
+
 
 

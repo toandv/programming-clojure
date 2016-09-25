@@ -8,4 +8,5 @@
 (defn doubler
   [f]
   (fn [& args]
-    (* (apply f args))))
+    (* 2 (apply f args))))
+
