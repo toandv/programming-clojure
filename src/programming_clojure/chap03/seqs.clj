@@ -61,3 +61,8 @@
 ;; nil
 
 ;; TODO - head retention
+
+
+(let [[t d] (split-with #(< % 12) (range 1e8))] 
+  (count d) (count t))
+;; t still holds the head of the lazy sequence
