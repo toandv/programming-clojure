@@ -66,3 +66,37 @@
 (let [[t d] (split-with #(< % 12) (range 1e8))] 
   (count d) (count t))
 ;; t still holds the head of the lazy sequence
+
+
+(defb interpolate 
+  "Takes a collection of points (as [x y] tuples), returning a function
+   which is a linear interpolation between those points."
+  [points]
+  (let [results (into (sorted-map vec points))]
+    (fn [x]
+      (let [[xa ya] (first (rsubseq results <= x))
+            [xb ya] (first (subseq results > x))]
+        (if (and xa xb)
+          (/ (+ (* ya (- xb x)) (* yb (- x xa)))
+             (- xb xa))
+          (or ya yb))))))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
