@@ -68,11 +68,11 @@
 ;; t still holds the head of the lazy sequence
 
 
-(defb interpolate 
+(defn interpolate 
   "Takes a collection of points (as [x y] tuples), returning a function
    which is a linear interpolation between those points."
   [points]
-  (let [results (into (sorted-map vec points))]
+  (let [results (into (sorted-map) (map vec points))]
     (fn [x]
       (let [[xa ya] (first (rsubseq results <= x))
             [xb ya] (first (subseq results > x))]
@@ -84,9 +84,7 @@
 
 
 
-
-
-
+(def results (into (sorted-map) (map vec [`(1 2) `(2 3) [3 4]])))
 
 
 

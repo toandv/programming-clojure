@@ -1,4 +1,4 @@
-(def m {:a 1 :b 2 :c 3 :d 4})
+(Def m {:a 1 :b 2 :c 3 :d 4})
 
 (let [{a :a b :b d :d} m]
   (+ a b d))
@@ -42,15 +42,27 @@
 
 
 (def orders
-[{:product "Clock", :customer "Wile Coyote", :qty 6, :total 300}
-{:product "Dynamite", :customer "Wile Coyote", :qty 20, :total 5000}
-{:product "Shotgun", :customer "Elmer Fudd", :qty 2, :total 800}
-{:product "Shells", :customer "Elmer Fudd", :qty 4, :total 100}
-{:product "Hole", :customer "Wile Coyote", :qty 1, :total 1000}
-{:product "Anvil", :customer "Elmer Fudd", :qty 2, :total 300}
-{:product "Anvil", :customer "Wile Coyote", :qty 6, :total 900}])
+  [{:product"Clock", :customer "Wile Coyote", :qty 6, :total 300}
+   {:product "Dynamite", :customer "Wile Coyote", :qty 20, :total 5000}
+   {:product  "Shotgun", :customer "Elmer Fudd", :qty 2, :total 800}
+   {:product  "Shells", :customer "Elmer Fudd", :qty 4, :total 100}
+   {:product  "Hole", :customer "Wile Coyote", :qty 1, :total 1000}
+   {:product  "Anvil", :customer "Elmer Fudd", :qty 2, :total 300}
+   {:product  "Anvil", :customer "Wile Coyote", :qty 6, :total 900}])
 
 (reduce-by :customer #(+ %1 (:total %2)) 0 orders)
 
+(reduce (fn [acc order]
+          (let [product (:product order)]
+            (assoc acc 
+                   product 
+                   (+ (acc product 0) (:qty order))))) 
+        {}  
+        orders)
 
-
+(reduce-by :product 
+           #(conj % (:customer %2)) 
+           #{} 
+           orders)
+(reduce-by (juxt :customer :product) 
+           #(+ %1 (:total %2)) 0 orders)
