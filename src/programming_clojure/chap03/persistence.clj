@@ -22,3 +22,9 @@
     (if (zero? cnt) 
       acc
       (recur (dec cnt) (* acc cnt)))))
+
+(defn get-nested-recur [keys keyvals]
+  (loop [k keys val keyvals] 
+    (if  (not (map? val)) 
+      (val) 
+      (recur (rest keys) ((first keys) keyvals)))))
