@@ -34,6 +34,7 @@
   (let [w (count board)
         h (count (first board))]
     (loop [new-board board x 0 y 0]
+      (pprint new-board)
       (cond
         (>= x w) new-board
         (>= y h) (recur new-board (inc x) 0) 
