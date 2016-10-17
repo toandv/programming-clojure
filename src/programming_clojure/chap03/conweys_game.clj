@@ -49,18 +49,42 @@
 (-> (iterate indexed-step glider) (nth 8) clojure.pprint/pprint)
 
 
+(defn reduced-step
+  [board]
+  (let [w (count board)
+        h (count (first board))]
+    (reduce
+     (fn [new-board x]
+       (reduce 
+        (fn [new-board y]
+          (let [new-liveness
+                (case (count-neightbours board [x y])
+                  2 (get-in board [x y])
+                  3 :on
+                  nil)]
+            (assoc-in new-board [x y] new-liveness))) 
+        new-board (range h)))
+     board (range w))))
+
+(defn lc-reduced-step
+  [board]
+  (let [w (count board)
+        h (count (first board))]
+    (reduce 
+     (fn [new-board [x y]]
+       (let [new-liveness
+             (case (count-neightbours board [x y])
+               2 (get-in board [x y])
+               3 :on
+               nil)]
+         (assoc-in new-board [x y] new-liveness)))
+     board (for [x (range w) y (range w)] [x y]))))
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+(defn window
+  "Returns a lazy sequence of 3-item windows 
+  centered around each item of coll"
+  [coll]
+  (partition 3 1 (concat [nil] coll [nil])))
+   
