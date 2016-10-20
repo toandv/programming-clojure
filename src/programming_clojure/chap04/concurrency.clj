@@ -40,16 +40,3 @@ a-fn
   (let [result (apply async-fn args)]
        @result))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
