@@ -5,7 +5,7 @@
 (defn log->list
   [dest-atom key source old new]
   (when (not= old new) 
-    (swap! dest-atom conj old)))
+    (swap! dest-atom conj old))) ;; we can store these states in db if we want
 
 (add-watch sarah :record (partial log->list history))
 
