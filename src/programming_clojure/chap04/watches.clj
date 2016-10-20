@@ -1,6 +1,6 @@
 (def sarah (atom {:name "Sarah" :age 25 :wears-glasses? false}))
 
-(def history (atom ())) ;; why do we need a atom?
+(def history (atom ())) ;; why do we need an atom?
 
 (defn log->list
   [dest-atom key source old new]
