@@ -25,7 +25,24 @@
                              (println "Tryinig 5")
                              (conj % 5))))
 
-;; 
+(def x (atom 2000))
+(defn echo-watch
+  [key identity oldv newv]
+  (println oldv "=>" newv))
+(add-watch x :echo echo-watch)
+
+(compare-and-set! x 1000 3000)
+(compare-and-set! x 2000 3000)
+(compare-and-set! x @x 3000)
+
+
+
+
+
+
+
+
+
 
 
 
