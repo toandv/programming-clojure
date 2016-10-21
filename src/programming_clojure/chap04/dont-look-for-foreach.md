@@ -18,7 +18,7 @@ for (Integer number: numbers) {
     // or something else
 }
 ```
-But in fact, we don't just print out the list, but we need to do something with it,
+In fact, we don't just print out the list, we need to do something with it,
 for example, double all elements in list.
 So we should focus on the goal, doubling all elements in the list, 
 and don't have to think about how we iterate the list or get each element.
