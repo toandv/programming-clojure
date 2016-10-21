@@ -1,4 +1,4 @@
-## Don't look for the for-eac loop when using a functional programming language
+## Don't look for the for loop when using a functional programming language
 
 We a list/seq/array of something, we often want to find a way to
 iterate over it and may do something with each element.
