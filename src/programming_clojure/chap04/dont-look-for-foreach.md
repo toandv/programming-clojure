@@ -1,4 +1,4 @@
-## Don't look for for loop when using a functional programming language
+## Don't look for the for loop when using a functional programming language
 
 We a list/seq/array of something, we often want to find a way to
 iterate over it and may do something with each element.
@@ -18,8 +18,8 @@ for (Integer number: numbers) {
     // or something else
 }
 ```
-But in fact, we don't just print out the list, but we need to do something with it,
-for example, double all elements in list.
+In fact, we don't just print out the list, we need to do something with it,
+for example, double all elements in the list.
 So we should focus on the goal, doubling all elements in the list, 
 and don't have to think about how we iterate the list or get each element.
 
