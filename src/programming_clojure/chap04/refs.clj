@@ -1,10 +1,9 @@
 (defn character
   [name & {:as opts}]
-  (ref (merge {:name name :items #{} :health 500} opts)))
-
+  (ref (merge {:name name :items #{}} opts)))
 (def smaug (character "Smaug" :health 500 :strength 400 :items (set (range 50))))
 (def bilbo (character "Bilbo" :health 100 :strength 100))
-(def gandalf (character "Gandalf" :health 75 :strength 750))
+(def gandalf (character "Gandalf" :health 75 :mana 750))
 
 (defn loot
   [from to]
@@ -72,17 +71,17 @@
 (defn heal
   [healer target]
   (dosync
-   (let [aid (* (rand 0.1) (:mana @healer))]
+   (let [aid (* (rand 0.1) (:mana @healer 0))]
      (when (pos? aid)
-       (commute update-in healer [:mana] - (max 5 (/ aid 5)))
-       (commute update-in target [:health] + aid)))))
+       (commute healer update-in [:mana] - (max 5 (/ aid 5)))
+       (commute target update-in [:health] + aid)))))
 
 (defn alive?
   [character]
   (pos? (:health @character)))
 
 (def alive??? (comp pos? :health))
-
+ 
 (defn play
   [character action other]
   (while (and (alive? character)
@@ -94,22 +93,12 @@
               (play bilbo attack smaug)
               (play smaug attack bilbo))
 
+(dosync 
+ (alter bilbo assoc :health 100)
+ (alter smaug assoc :health 500))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+(wait-futures 1
+              (play bilbo attack smaug)
+              (play smaug attack bilbo)
+              (play gandalf heal bilbo))
+              
